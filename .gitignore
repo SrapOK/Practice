@@ -5,6 +5,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 .npm
-node_modules/
+*node_modules/
 jspm_packages/
 .env
