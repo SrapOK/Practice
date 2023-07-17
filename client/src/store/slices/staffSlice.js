@@ -1,30 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  staff: [
-    {
-      name: "Биба",
-      middlename: "Бибович",
-      surname: "Бибов",
-      id: "1"
-    },
-    {
-      name: "Боба",
-      middlename: "Бобович",
-      surname: "Бобов",
-      id: "2"
-    }
-  ]
+  staff: []
 };
 
 export const staffSlice = createSlice({
   name: "staff",
   initialState,
   reducers: {
-    fetchStaff: () => {}
+    setStaff: (state, action) => {
+      state.staff = action.payload.map((item) => {
+        return { ...item };
+      });
+    },
+    setAttendance: (state, action) => {
+      const { value, id } = action.payload;
+      console.log(action.payload);
+      const employee = state.staff.find((item) => item.id == id);
+      employee.attendance = value;
+    }
   }
 });
 
-export const { fetchStaff } = staffSlice.actions;
+export const { setStaff, setAttendance } = staffSlice.actions;
 
 export default staffSlice.reducer;

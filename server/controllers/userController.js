@@ -10,7 +10,7 @@ const generateJwt = (id, email, role) => {
 };
 
 class UserController {
-  async registration(req, res) {
+  async registration(req, res, next) {
     const { email, password, role } = req.body;
     if (!email || !password) {
       return next(
@@ -19,8 +19,10 @@ class UserController {
     }
     const candidate = await User.findOne({ where: { email } });
     if (candidate) {
-      ApiError(
-        ApiError.badRequest("Пользователь с таким email уже существует")
+      next(
+        ApiError(
+          ApiError.badRequest("Пользователь с таким email уже существует")
+        )
       );
     }
     const hashPassword = await bcrypt.hash(password, 4);

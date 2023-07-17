@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGINSTRATION_ROUTE } from "../utils/consts";
 import { login, registration } from "../http/UserAPI";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 import { STAFF_ROUTE } from "../utils/consts";
 
