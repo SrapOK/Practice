@@ -7,8 +7,13 @@ class AttendanceController {
     return res.json(attendances);
   }
   async create(req, res) {
-    const { time, type } = req.body;
-    const attendance = await Attendance.create({ time, type });
+    const { time, type, staffId, workdayId } = req.body;
+    const attendance = await Attendance.create({
+      time,
+      type,
+      staffId,
+      workdayId
+    });
     return res.json(attendance);
   }
 }

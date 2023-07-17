@@ -6,7 +6,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 const StaffList = () => {
   const staff = useSelector((state) => state.staffSlice.staff);
-  console.log(staff);
 
   return (
     <Row className="mt-5">

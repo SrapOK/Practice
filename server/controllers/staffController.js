@@ -1,5 +1,4 @@
 const { Staff } = require("../models/models");
-const ApiError = require("../error/ApiError");
 
 class StaffController {
   async getAll(req, res) {

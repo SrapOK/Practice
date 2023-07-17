@@ -1,11 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 
 import Layout from "./Layout";
 import { authRoutes, publicRoutes, notFoundRoute } from "../routes";
 
 const AppRouter = (props) => {
-  const isAuth = false;
+  const isAuth = useSelector((state) => state.userSlice.isAuth);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
